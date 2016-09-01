@@ -55,6 +55,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onError(Throwable e) {
 
+                Log.d("Rxjava",e+"");
+
             }
 
             @Override
@@ -101,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
                try {
                    return Observable.just(getGist());
                } catch (IOException e) {
-                  return null;
+                  return Observable.error(e);
                }
            }
        });
